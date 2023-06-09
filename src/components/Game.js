@@ -10,24 +10,43 @@ const App = (props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.target}>{target}</Text>
-      {randomNumbers.map((randomNumbers, index) => (
-        <Text key={index}>{randomNumbers}</Text>
-      ))}
+      <View style={styles.randomContainer}>
+        {randomNumbers.map((randomNumbers, index) => (
+          <Text style={styles.randomNumber} key={index}>{randomNumbers}</Text>
+        ))}
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ddd",
+    backgroundColor: "#141414",
     flex: 1,
     paddingTop: 30,
   },
   target: {
     fontSize: 40,
-    backgroundColor: "#aaa",
+    backgroundColor: "#303432",
+    color: '#CACCCC',
     marginHorizontal: 50,
     textAlign: "center",
+  },
+  randomContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  randomNumber: {
+    backgroundColor: '#303432',
+    color: '#CACCCC',
+    width: 100,
+    marginHorizontal: 15,
+    marginVertical: 25,
+    fontSize: 35,
+    textAlign: 'center',
+    height: 'fit-content',
   },
 });
 
