@@ -1,13 +1,21 @@
 import { View, Text, StyleSheet } from "react-native";
 
-const App = () => {
-  const target = 10 + Math.floor(40 * Math.random());
+const App = (props) => {
+  const randomNumbers = Array.from({ length: props.randomNumberCount }).map(
+    () => 1 + Math.floor(10 * Math.random())
+  );
+  const target = randomNumbers
+    .slice(0, props.randomNumberCount - 2)
+    .reduce((acc, curr) => acc + curr, 0);
   return (
     <View style={styles.container}>
       <Text style={styles.target}>{target}</Text>
+      {randomNumbers.map((randomNumbers, index) => (
+        <Text key={index}>{randomNumbers}</Text>
+      ))}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
