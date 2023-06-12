@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
+import RandomNumber from "./RandomNumber";
 
-const App = (props) => {
+const Game = (props) => {
   const randomNumbers = Array.from({ length: props.randomNumberCount }).map(
     () => 1 + Math.floor(10 * Math.random())
   );
@@ -12,7 +13,8 @@ const App = (props) => {
       <Text style={styles.target}>{target}</Text>
       <View style={styles.randomContainer}>
         {randomNumbers.map((randomNumbers, index) => (
-          <Text style={styles.randomNumber} key={index}>{randomNumbers}</Text>
+          <RandomNumber key={index} number={randomNumbers} />
+          // <Text style={styles.randomNumber} key={index}>{randomNumbers}</Text>
         ))}
       </View>
     </View>
@@ -38,16 +40,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
   },
-  randomNumber: {
-    backgroundColor: '#303432',
-    color: '#CACCCC',
-    width: 100,
-    marginHorizontal: 15,
-    marginVertical: 25,
-    fontSize: 35,
-    textAlign: 'center',
-    height: 'fit-content',
-  },
 });
 
-export default App;
+export default Game;
