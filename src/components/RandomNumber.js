@@ -6,7 +6,7 @@ const RandomNumber = (props) => {
   };
   return (
     <TouchableOpacity onPress={handlePress}>
-      <Text style={styles.randomNumber}>{props.number}</Text>
+      <Text style={[styles.randomNumber, props.isSelected && styles.selected]}>{props.number}</Text>
     </TouchableOpacity>
   );
 };
@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
     fontSize: 35,
     textAlign: "center",
     height: "fit-content",
+  },
+  selected: {
+    opacity: 0.3,
   },
 });
 
