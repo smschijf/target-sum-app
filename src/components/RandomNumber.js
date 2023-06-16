@@ -1,12 +1,16 @@
 import { Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const RandomNumber = (props) => {
+
   const handlePress = () => {
-    console.log(props.number);
+      props.onPress(props.id);
   };
+
   return (
     <TouchableOpacity onPress={handlePress}>
-      <Text style={[styles.randomNumber, props.isSelected && styles.selected]}>{props.number}</Text>
+      <Text style={[styles.randomNumber, props.isSelected && styles.selected]}>
+        {props.number}
+      </Text>
     </TouchableOpacity>
   );
 };
